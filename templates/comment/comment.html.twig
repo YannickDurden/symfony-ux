@@ -1,0 +1,14 @@
+<div id="comment_{{ comment.id }}" class="">
+    <div class="card card-compact card-side bg-base-100 shadow-xl">
+        <div class="card-body">
+            <h2 class="card-title">{{ comment.username }} at {{ comment.createdAt | date('d/m/Y H:i:s') }}</h2>
+            <p>{{ comment.content }}</p>
+            <div class="card-actions justify-end">
+                <form method="POST" action="">
+                    <input type="hidden" name="comment_id" value="{{ comment.id }}"/>
+                    <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

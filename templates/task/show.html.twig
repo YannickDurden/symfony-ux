@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ task.name }}
+{% endblock %}
+
+{% block body %}
+<div id="task" class="space-y-7" {{ turbo_stream_listen('task') }}>
+    <section>
+        <table id="task" class="table">
+            <tr>
+                <td class="font-semibold">Name</td>
+                <td>{{ task.name }}</td>
+            </tr>
+            <tr>
+                <td class="font-semibold">Description</td>
+                <td>{{ task.description }}</td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <turbo-frame id="comment">
+            {% include 'comment/add_comment_button.html.twig' %}
+        </turbo-frame>
+        <div id="comments" class="space-y-5 mt-5">
+            {% for comment in task.comments %}
+                {% include 'comment/comment.html.twig' %}
+            {% endfor %}
+        </div>
+
+    </section>
+</div>
+{% endblock %}
+
+{% block new_comment %}
+    <turbo-stream action="append" targets="#comments">
+        <template>
+            {% include 'comment/comment.html.twig' %}
+        </template>
+    </turbo-stream>
+
+    <turbo-stream action="replace" targets="form[name=comment]">
+        <template>
+            {% include 'comment/add_comment_button.html.twig' with {'task': comment.task} %}
+       </template>
+    </turbo-stream>
+{% endblock %}
+

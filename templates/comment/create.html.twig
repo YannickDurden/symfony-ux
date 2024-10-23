@@ -1,0 +1,7 @@
+<turbo-frame id="comment">
+    {{ form_start(form, {'attr': {'class': 'space-y-3'}}) }}
+    {{ form_row(form.username, {'attr': {'class': 'input input-bordered w-full max-w-xs'}}) }}
+    {{ form_row(form.content, {'attr': {'class': 'textarea textarea-bordered  w-full max-w-xs'}}) }}
+    <button class="btn btn-sm" type="submit">Submit</button>
+    {{ form_end(form) }}
+</turbo-frame>

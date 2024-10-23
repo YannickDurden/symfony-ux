@@ -1,0 +1,13 @@
+<tr id="task_{{ task.id }}" class="border-b">
+    <td class="p-4 align-middle">{{task.name}}</td>
+    <td class="p-4 align-middle">{{task.createdAt | date('d/m/Y')}}</td>
+    <td class="p-4 align-middle">{{task.updatedAt | date('d/m/Y')}}</td>
+    <td class="p-4 align-middle">
+        <a href="{{ path('task_show', {'id': task.id}) }}">Show</a>
+
+        <form method="POST" action="{{ path('task_delete', {'id': task.id}) }}">
+            <input type="hidden" value="{{ task.id }}" name="id" />
+            <button type="submit">Delete</button>
+        </form>
+    </td>
+</tr>

@@ -1,4 +1,4 @@
-name: ddev-symfony
+name: symfony-ux
 type: php
 docroot: public
 php_version: "8.3"
@@ -131,7 +131,7 @@ nodejs_version: "latest"
 # database container will be unusable. In the global configuration it is also
 # possible to omit ddev-router, but not here.
 
-# performance_mode: "global"
+performance_mode: "global"
 # DDEV offers performance optimization strategies to improve the filesystem
 # performance depending on your host system. Should be configured globally.
 #

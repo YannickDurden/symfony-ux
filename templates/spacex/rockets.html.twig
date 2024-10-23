@@ -1,0 +1,28 @@
+<turbo-frame id="rockets">
+    <table class="w-full table">
+        <thead>
+        <tr class="border-b">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Height</th>
+            <th>Mass</th>
+            <th>Active</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for rocket in rockets %}
+            <tr class="{% if not loop.last %}border-b{% endif%}">
+                <td class="p-4 align-middle">{{rocket.name}}</td>
+                <td class="p-4 align-middle">{{rocket.type}}</td>
+                <td class="p-4 align-middle">{{rocket.height}} m</td>
+                <td class="p-4 align-middle">{{rocket.mass / 1000}} t</td>
+                <td class="p-4 align-middle">{{rocket.active ? 'Yes' : 'No'}}</td>
+                <td class="p-4 align-middle">
+                    <a data-turbo-frame="_top" href="{{ path('get_rocket_by_id', {'id': rocket.apiId}) }}">More</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</turbo-frame>

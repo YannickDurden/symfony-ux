@@ -1,0 +1,11 @@
+{% block create %}
+    <turbo-stream action="prepend" target="tasks">
+        <template>
+            {% include 'task/table.row.html.twig' with {'task': entity} %}
+        </template>
+    </turbo-stream>
+{% endblock %}
+
+{% block remove %}
+    <turbo-stream action="remove" target="task_{{ id }}"></turbo-stream>
+{% endblock %}

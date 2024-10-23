@@ -6,6 +6,11 @@ framework:
     # Note that the session will be started ONLY if you read or write from it.
     session: true
 
+    http_client:
+        scoped_clients:
+            spacex.client:
+                base_uri: 'https://api.spacexdata.com'
+
     #esi: true
     #fragments: true
 

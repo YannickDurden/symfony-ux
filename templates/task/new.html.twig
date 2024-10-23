@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'tailwind_2_layout.html.twig' %}
+
+{% block body %}
+<section class="container flex justify-center items-center">
+    {{ form_start(form, {'attr': {'class': 'space-y-3'}}) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    <button class="btn btn-sm" type="submit">Create</button>
+    {{ form_end(form) }}
+</section>
+{% endblock %}
+
+
