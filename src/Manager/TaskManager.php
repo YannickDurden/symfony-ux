@@ -19,7 +19,10 @@ readonly class TaskManager
 
     public function fetchAll(): array
     {
-        return $this->taskRepository->findAll();
+        return $this->taskRepository->findBy(
+            criteria: [],
+            orderBy: ['createdAt' => 'DESC']
+        );
     }
 
     public function remove(Task $task): void

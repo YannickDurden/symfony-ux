@@ -1,0 +1,20 @@
+{% form_theme form 'tailwind_2_layout.html.twig' %}
+
+<div{{ attributes }}>
+    <section class="container flex justify-center items-center">
+        {{ form_start(form, {
+            'attr': {
+                'class': 'flex-grow space-y-3',
+                'data-action': 'live#action:prevent',
+                'data-live-action-param': 'save',
+            }})
+        }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.description) }}
+            <button class="btn btn-sm" type="submit">
+                {{ buttonLabel }}
+            </button>
+        {{ form_end(form) }}
+    </section>
+</div>
+

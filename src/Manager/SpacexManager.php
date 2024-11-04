@@ -20,9 +20,20 @@ readonly class SpacexManager
     ) {
     }
 
-    public function paginatePastLaunches(int $page = 1): PaginationInterface
+    public function paginatePastLaunches(int $page = 1, ?string $launchName = null): PaginationInterface
     {
         $qb = $this->pastLaunchRepository->createQueryBuilder('pl');
+
+        if ($launchName) {
+            $launchNameLikeTheSearchedName = $qb->expr()->like(
+                $qb->expr()->lower('pl.name'),
+                $qb->expr()->literal('%' . strtolower($launchName) . '%')
+            );
+
+            $qb->andWhere($launchNameLikeTheSearchedName);
+        }
+
+        $qb->addOrderBy('pl.launchDate', 'desc');
 
         return $this->paginator->paginate(
             target: $qb,

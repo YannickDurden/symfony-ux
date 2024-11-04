@@ -5,7 +5,7 @@
 {% block body %}
     <table class="w-full table">
         <caption class="caption-top font-sans leading-tight text-gray-800">
-            <a class="btn btn-sm" href="{{ path('task_new') }}">Create task</a>
+            <a data-turbo="false" class="btn btn-sm" href="{{ path('task_new') }}">Create task</a>
         </caption>
         <thead>
             <tr class="border-b">
@@ -21,4 +21,8 @@
         {% endfor %}
         </tbody>
     </table>
+
+    {#{% for task in tasks %}
+        {{ component('Task', {task: task}) }}
+    {% endfor %}#}
 {% endblock %}

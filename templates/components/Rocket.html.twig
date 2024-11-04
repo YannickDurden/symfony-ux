@@ -1,0 +1,15 @@
+<div class="card lg:card-side bg-base-100 shadow-xl">
+    <figure>
+        <img src="{{ this.rocket.flickrImages[0] }}" alt="Rocket Image" />
+    </figure>
+    <div class="card-body">
+        <div class="flex justify-between">
+            <h2 class="card-title">{{ this.rocket.name }}</h2>
+            <div class="badge badge-outline">{{ this.rocket.active ? 'Active' : 'Inactive' }}</div>
+        </div>
+        <p>{{ this.rocket.description }}</p>
+        <div class="card-actions justify-start">
+            <a class="underline" href="{{ path('home') }}"><< All rockets</a>
+        </div>
+    </div>
+</div>

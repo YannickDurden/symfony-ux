@@ -7,16 +7,7 @@
 {% block body %}
 <div id="task" class="space-y-7" {{ turbo_stream_listen('task') }}>
     <section>
-        <table id="task" class="table">
-            <tr>
-                <td class="font-semibold">Name</td>
-                <td>{{ task.name }}</td>
-            </tr>
-            <tr>
-                <td class="font-semibold">Description</td>
-                <td>{{ task.description }}</td>
-            </tr>
-        </table>
+        {{ component('Task', {task: task}) }}
     </section>
     <section>
         <turbo-frame id="comment">

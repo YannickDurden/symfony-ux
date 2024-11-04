@@ -1,6 +1,15 @@
 <turbo-frame id="past-launches">
-    <table class="table">
-        <thead>
+    <div class="mt-7">
+        <div class="flex justify-end">
+            <form method="get" action="{{ path('get_past_launches') }}" class="space-x-3">
+                <label>
+                    <input class="input input-bordered" type="text" name="launchName" placeholder="Launch Name" value="{{ launchName }}" />
+                </label>
+                <button class="btn" type="submit">Search</button>
+            </form>
+        </div>
+        <table class="table">
+            <thead>
             <tr class="border-b">
                 <th{% if pagination.isSorted('pl.name') %} class="sorted"{% endif %}>
                     {{ knp_pagination_sortable(pagination, 'Name', 'pl.name') }}
@@ -12,9 +21,9 @@
                     {{ knp_pagination_sortable(pagination, 'Success', 'pl.success') }}
                 </th>
             </tr>
-        </thead>
+            </thead>
 
-        <tbody>
+            <tbody>
             {% for past_launch in pagination %}
                 <tr>
                     <td class="p-4 align-middle">
@@ -22,12 +31,12 @@
                             <div class="avatar">
                                 <div class="mask mask-squircle h-12 w-12">
                                     <img
-                                        src="{{ past_launch.patch }}"
-                                        alt="{{ past_launch.name ~ '_patch' }}" />
+                                            src="{{ past_launch.patch }}"
+                                            alt="{{ past_launch.name ~ '_patch' }}" />
                                 </div>
                             </div>
                             <div>
-                            <div>{{ past_launch.name }}</div>
+                                <div>{{ past_launch.name }}</div>
                             </div>
                         </div>
                     </td>
@@ -35,9 +44,10 @@
                     <td class="p-4 align-middle">{{ past_launch.success ? 'Yes' : 'No' }}</td>
                 </tr>
             {% endfor %}
-        </tbody>
-    </table>
-    <div class="navigation flex justify-center mt-2.5">
-        {{ knp_pagination_render(pagination) }}
+            </tbody>
+        </table>
+        <div class="navigation flex justify-center mt-2.5">
+            {{ knp_pagination_render(pagination) }}
+        </div>
     </div>
 </turbo-frame>

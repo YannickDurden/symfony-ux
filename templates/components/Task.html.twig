@@ -1,0 +1,17 @@
+<div class="border rounded indicator w-full">
+    <div class="indicator-item indicator-bottom">
+        <a href="{{ path('task_edit', {'id': task.id}) }}" class="btn btn-sm btn-primary">Edit</a>
+    </div>
+    <div class="w-full">
+        <table id="task" class="table table-lg table-auto">
+            <tr>
+                <td class="font-semibold">Name</td>
+                <td>{{ task.name }}</td>
+            </tr>
+            <tr>
+                <td class="font-semibold">Description</td>
+                <td>{{ task.description }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

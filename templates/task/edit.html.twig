@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - {{ task.name }}
+{% endblock %}
+
+{% block body %}
+    {{ component('TaskForm', {
+        initialFormData: task
+    }) }}
+{% endblock %}
+
+

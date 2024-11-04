@@ -6,6 +6,14 @@
     </turbo-stream>
 {% endblock %}
 
+{% block update %}
+    <turbo-stream action="replace" method="morph" target="task_{{ id }}">
+        <template>
+            {% include 'task/table.row.html.twig' with {'task': entity} %}
+        </template>
+    </turbo-stream>
+{% endblock %}
+
 {% block remove %}
     <turbo-stream action="remove" target="task_{{ id }}"></turbo-stream>
 {% endblock %}
