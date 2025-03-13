@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\TaskRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TaskRepository;
 use Symfony\UX\Turbo\Attribute\Broadcast;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[Broadcast]
 #[ORM\HasLifecycleCallbacks]
@@ -19,9 +20,11 @@ class Task
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\Length(min: 10, max: 50)]
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[Assert\Length(min: 20)]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 

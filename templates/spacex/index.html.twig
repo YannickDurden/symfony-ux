@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="rockets">
+        <h2 class="font-extrabold text-2xl">Rockets</h2>
+        <turbo-frame id="rockets" src="{{ path('get_rockets') }}">
+            {% include 'include/loading.html.twig' with {message: 'Fetch rockets...'} %}
+        </turbo-frame>
+    </section>
+    <section class="past-launches">
+        <h2 class="font-extrabold text-2xl">Past launches</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2">
+            <div class="success">
+                <turbo-frame id="past-launches-stats" src="{{ path('get_past_launches_statistics') }}">
+                    {% include 'include/loading.html.twig' with {message: 'Fetch past launches statistics...'} %}
+                </turbo-frame>
+            </div>
+            <div class="rockets-stats">
+                <turbo-frame id="rockets-statistics" src="{{ path('get_rockets_statistics') }}">
+                    {% include 'include/loading.html.twig' with {message: 'Fetch rockets statistics...'} %}
+                </turbo-frame>
+            </div>
+        </div>
+        <turbo-frame id="past-launches" src="{{ path('get_past_launches') }}">
+            {% include 'include/loading.html.twig' with {message: 'Fetch past launches...'} %}
+        </turbo-frame>
+    </section>
+{% endblock %}

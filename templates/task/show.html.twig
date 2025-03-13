@@ -37,3 +37,6 @@
     </turbo-stream>
 {% endblock %}
 
+{% block remove_comment %}
+    <turbo-stream action="remove" targets="#comment_{{ comment.id }}"></turbo-stream>
+{% endblock %}

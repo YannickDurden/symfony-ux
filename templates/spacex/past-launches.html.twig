@@ -3,9 +3,10 @@
         <div class="flex justify-end">
             <form method="get" action="{{ path('get_past_launches') }}" class="space-x-3">
                 <label>
-                    <input class="input input-bordered" type="text" name="launchName" placeholder="Launch Name" value="{{ launchName }}" />
+                    <input class="input input-lg input-bordered" type="text" name="launchName" placeholder="Launch Name" value="{{ launchName }}" />
                 </label>
-                <button class="btn" type="submit">Search</button>
+                {#<button class="btn" type="submit">Search</button>#}
+                <twig:Button size="lg" type="submit" color="secondary">Search</twig:Button>
             </form>
         </div>
         <table class="table">

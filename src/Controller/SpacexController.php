@@ -14,7 +14,14 @@ class SpacexController extends AbstractController
     public function __construct(
         private readonly SpacexManager $spacexManager,
         private readonly RocketRepository $rocketRepository,
-    ) {}
+    ) {
+    }
+
+    #[Route(path: '/spacex', name: 'spacex', methods: ['GET'])]
+    public function index(): Response
+    {
+        return $this->render('spacex/index.html.twig');
+    }
 
     #[Route(path: '/rockets', name: 'get_rockets', methods: ['GET'])]
     public function getRockets(): Response

@@ -1,28 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <section class="rockets">
-        <h2 class="font-extrabold text-2xl">Rockets</h2>
-        <turbo-frame id="rockets" src="{{ path('get_rockets') }}">
-            {% include 'include/loading.html.twig' with {message: 'Fetch rockets...'} %}
-        </turbo-frame>
+    {% set is_logged_in = app.user is null %}
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+        {% for cat in cats_list %}
+            <twig:Card
+                title="{{cat.name}}"
+                buttonLabel="Adopt me"
+                type="cat"
+                description="{{cat.description}}"
+                isLoggedIn="{{ is_logged_in }}"
+                aria-label="cat-card"
+            />
+        {% endfor %}
     </section>
-    <section class="past-launches">
-        <h2 class="font-extrabold text-2xl">Past launches</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2">
-            <div class="success">
-                <turbo-frame id="past-launches-stats" src="{{ path('get_past_launches_statistics') }}">
-                    {% include 'include/loading.html.twig' with {message: 'Fetch past launches statistics...'} %}
-                </turbo-frame>
-            </div>
-            <div class="rockets-stats">
-                <turbo-frame id="rockets-statistics" src="{{ path('get_rockets_statistics') }}">
-                    {% include 'include/loading.html.twig' with {message: 'Fetch rockets statistics...'} %}
-                </turbo-frame>
-            </div>
-        </div>
-        <turbo-frame id="past-launches" src="{{ path('get_past_launches') }}">
-            {% include 'include/loading.html.twig' with {message: 'Fetch past launches...'} %}
-        </turbo-frame>
+    <div class="divider my-10">Or choose a dog!</div>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+        {% for dog in dogs_list %}
+            <twig:Card
+                title="{{dog.name}}"
+                buttonLabel="Catch me"
+                type="dog"
+                description="{{dog.description}}"
+                isLoggedIn="{{ is_logged_in }}"
+            />
+        {% endfor %}
     </section>
 {% endblock %}

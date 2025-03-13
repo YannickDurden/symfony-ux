@@ -1,0 +1,14 @@
+<div {{attributes}} class="card card-compact bg-base-100 w-96 shadow-xl">
+	<figure>
+		<img src="{{ image_url }}" alt="image-card"/>
+	</figure>
+	<div class="card-body">
+		<h2 class="card-title">{{ title }} </h2>
+		<p>{{ description }}</p>
+		{% if canBuy %}
+		<div class="card-actions justify-end">
+			<twig:Button has_link="true" color="primary">{{ label }}</twig:Button>
+		</div>
+		{% endif %}
+	</div>
+</div>
