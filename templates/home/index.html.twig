@@ -1,29 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% set is_logged_in = app.user is null %}
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-        {% for cat in cats_list %}
-            <twig:Card
-                title="{{cat.name}}"
-                buttonLabel="Adopt me"
-                type="cat"
-                description="{{cat.description}}"
-                isLoggedIn="{{ is_logged_in }}"
-                aria-label="cat-card"
-            />
-        {% endfor %}
-    </section>
+    <twig:Animals animalType="cat" />
     <div class="divider my-10">Or choose a dog!</div>
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-        {% for dog in dogs_list %}
-            <twig:Card
-                title="{{dog.name}}"
-                buttonLabel="Catch me"
-                type="dog"
-                description="{{dog.description}}"
-                isLoggedIn="{{ is_logged_in }}"
-            />
-        {% endfor %}
-    </section>
+    <twig:Animals animalType="dog" />
 {% endblock %}

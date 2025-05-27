@@ -5,7 +5,7 @@ namespace App\Twig\Components;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent(template: 'components/Navbar.html.twig')]
+#[AsTwigComponent]
 final class Navbar
 {
     public function __construct(
@@ -13,10 +13,9 @@ final class Navbar
     ) {
     }
 
-    public function getUser(): string
+    public function getUser(): ?string
     {
-        // return $this->security->getUser();
-        return 'Jane Doe';
+        return $this->security->getUser()?->getEmail();
     }
 
     public function getImageProfile(): string

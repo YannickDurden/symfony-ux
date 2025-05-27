@@ -1,10 +1,11 @@
-{% props color = 'primary',
+{% props 
+    color = 'primary',
     size = 'md',
     has_link = false,
-    type = 'button',
+    type = 'button'
 %}
 
-{% set btn = cva({
+{% set btn = html_cva(
     base: 'btn',
     variants: {
         color: {
@@ -17,14 +18,14 @@
             md: 'btn-md',
             lg: 'btn-lg'
         }
-    }}
+    }
 ) %}
 
 {% set tag = has_link ? 'a' : 'button' %}
 
 <{{ tag }}
     class="{{ btn.apply({color, size}, attributes.render('class')) }}"
-    {% if has_link %}href="{{ url|default('#') }}"{% endif %}
+    {% if has_link %}href="{{ attributes.render('url')|default('#') }}"{% endif %}
     {% if not has_link %}{{ 'type=' ~ type }}{% endif %}
 >
     {% block content %}{% endblock %}

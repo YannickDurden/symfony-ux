@@ -7,12 +7,12 @@
 			<li>
 				<a href="{{ path('home') }}">Home</a>
 			</li>
-			<li>
+			{# <li>
 				<a href="{{ path('spacex') }}">SpaceX</a>
 			</li>
-			{#<li>
+			<li>
 				<a href="{{ path('task_list') }}">Tasks</a>
-			</li>#}
+			</li> #}
 		</ul>
 
 		<div class="dropdown dropdown-end">
@@ -31,7 +31,7 @@
 					<a>Settings</a>
 				</li>
 				<li>
-					<a>Logout</a>
+					<twig:Button color="neutral" size="sm" has_link="true" url="{{ path('_logout_main') }}">Logout</twig:Button>
 				</li>
 			</ul>
 		</div>

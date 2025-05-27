@@ -1,0 +1,14 @@
+<section {{ attributes}} class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+    {% for animal in animals %}
+        <twig:Card
+            title="{{animal.name}}"
+            image="{{animal.image}}"
+            description="{{animal.description}}"
+            aria-label="cat-card"
+        >
+            <twig:block name="action">
+                <twig:Button has_link="false" color="secondary" class="foo">Adopt me!</twig:Button>
+            </twig:block>
+        </twig:Card>
+    {% endfor %}
+</section>

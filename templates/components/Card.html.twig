@@ -1,14 +1,16 @@
+{% props title, description, image = null %}
+
 <div {{attributes}} class="card card-compact bg-base-100 w-96 shadow-xl">
+	{% if image is not null %}
 	<figure>
-		<img src="{{ image_url }}" alt="image-card"/>
+		<img src="{{ image }}" alt="image-card"/>
 	</figure>
+	{% endif %}
 	<div class="card-body">
 		<h2 class="card-title">{{ title }} </h2>
 		<p>{{ description }}</p>
-		{% if canBuy %}
 		<div class="card-actions justify-end">
-			<twig:Button has_link="true" color="primary">{{ label }}</twig:Button>
+			{% block action %}{% endblock %}
 		</div>
-		{% endif %}
 	</div>
 </div>

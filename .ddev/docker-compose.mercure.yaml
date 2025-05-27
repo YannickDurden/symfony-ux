@@ -19,7 +19,7 @@ services:
       MERCURE_EXTRA_DIRECTIVES: |
         cors_origins https://symfony-ux.ddev.site
     # Comment the following line to disable the development mode
-    command: /usr/bin/caddy run --config /etc/caddy/Caddyfile.dev
+    command: /usr/bin/caddy run --config /etc/caddy/dev.Caddyfile
     volumes:
       - mercure_data:/data
       - mercure_config:/config

@@ -80,7 +80,7 @@ readonly class SpacexManager
         );
     }
 
-    public function createRocketsStatisticsChart(): Chart
+    public function createRocketsStatisticsChart(): ?Chart
     {
         $statistics = $this->rocketRepository->getRocketsStatistics();
 

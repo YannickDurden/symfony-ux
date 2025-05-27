@@ -1,5 +1,7 @@
 <turbo-frame id="rockets-statistics">
     <div class="h-80">
-        {{ render_chart(chart) }}
+        {% if chart is not null %}
+            {{ render_chart(chart) }}
+        {% endif %}
     </div>
 </turbo-frame>
